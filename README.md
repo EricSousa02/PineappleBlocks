@@ -1,22 +1,4 @@
-<div align="center">
-  <br />
-    <a href="https://youtu.be/oKIThIihv60" target="_blank">
-      <img src="https://github.com/JavaScript-Mastery-Pro/figma-ts/assets/151519281/e03dc22d-0f45-464b-9dc3-f01f07906bee" alt="Banner do Projeto">
-    </a>
-  <br />
 
-  <div>
-    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
-    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  </div>
-
-  <h3 align="center">Clone Figma em Tempo Real</h3>
-
-   <div align="center">
-     Construa este projeto passo a passo com nosso tutorial detalhado no <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube. Junte-se à família JSM!
-    </div>
-</div>
 
 ## 📋 <a name="table">Tabela de Conteúdos</a>
 
@@ -28,21 +10,9 @@
 6. 🔗 [Links](#links)
 7. 🚀 [Mais](#more)
 
-## 🚨 Tutorial
-
-Este repositório contém o código correspondente a um tutorial detalhado disponível em nosso canal no YouTube, <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
-
-Se você preferir aprendizado visual, este é o recurso perfeito para você. Siga nosso tutorial para aprender a construir projetos como este passo a passo de maneira amigável para iniciantes!
-
-<a href="https://youtu.be/oKIThIihv60" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/1736fca5-a031-4854-8c09-bc110e3bc16d" /></a>
-
 ## <a name="introduction">🤖 Introdução</a>
 
 Um clone minimalista do Figma para mostrar como adicionar recursos do mundo real, como colaboração ao vivo com chat de cursor, comentários, reações e desenho de designs (formas, upload de imagens) no canvas usando fabric.js.
-
-Se você está começando e precisa de ajuda ou enfrenta algum problema, junte-se à nossa comunidade ativa no Discord com mais de 27 mil membros. É um lugar onde as pessoas se ajudam mutuamente.
-
-<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
 
 ## <a name="tech-stack">⚙️ Tecnologias Utilizadas</a>
 
@@ -94,4 +64,4 @@ Certifique-se de ter o seguinte instalado em sua máquina:
 **Clonando o Repositório**
 
 ```bash
-git clone https://github.com/JavaScript-Mastery-Pro/figma-ts.git
+git clone https://github.com/EricSousa02/PineappleBlocks.git
