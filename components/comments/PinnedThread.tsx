@@ -54,7 +54,7 @@ export const PinnedThread = ({ thread, onFocus, ...props }: Props) => {
         >
           <Image
             src={`https://liveblocks.io/avatars/avatar-${Math.floor(Math.random() * 30)}.png`}
-            alt='Dummy Name'
+            alt='alguém'
             width={28}
             height={28}
             draggable={false}

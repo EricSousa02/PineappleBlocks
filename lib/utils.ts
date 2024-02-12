@@ -2,36 +2,37 @@ import jsPDF from "jspdf";
 import { twMerge } from "tailwind-merge";
 import { type ClassValue, clsx } from "clsx";
 
+
 const adjectives = [
-  "Happy",
-  "Creative",
-  "Energetic",
-  "Lively",
-  "Dynamic",
-  "Radiant",
-  "Joyful",
-  "Vibrant",
-  "Cheerful",
-  "Sunny",
-  "Sparkling",
-  "Bright",
-  "Shining",
+  "Feliz",
+  "Criativo",
+  "Energético",
+  "Animado",
+  "Dinâmico",
+  "Radiante",
+  "Alegre",
+  "Vibrante",
+  "Alegre",
+  "Ensolarado",
+  "Cintilante",
+  "Brilhante",
+  "Radiante",
 ];
 
 const animals = [
-  "Dolphin",
-  "Tiger",
-  "Elephant",
-  "Penguin",
-  "Kangaroo",
-  "Panther",
-  "Lion",
-  "Cheetah",
-  "Giraffe",
-  "Hippopotamus",
-  "Monkey",
+  "Golfinho",
+  "Tigre",
+  "Elefante",
+  "Pinguim",
+  "Canguru",
+  "Pantera",
+  "Leão",
+  "Chita",
+  "Girafa",
+  "Hipopótamo",
+  "Macaco",
   "Panda",
-  "Crocodile",
+  "Crocodilo",
 ];
 
 export function cn(...inputs: ClassValue[]) {
@@ -43,7 +44,7 @@ export function generateRandomName(): string {
     adjectives[Math.floor(Math.random() * adjectives.length)];
   const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
 
-  return `${randomAdjective} ${randomAnimal}`;
+  return `${randomAnimal} ${randomAdjective}`;
 }
 
 export const getShapeInfo = (shapeType: string) => {

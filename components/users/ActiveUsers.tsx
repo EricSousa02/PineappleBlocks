@@ -29,7 +29,7 @@ const ActiveUsers = () => {
     return (
       <div className='flex items-center justify-center gap-1'>
         {currentUser && (
-          <Avatar name='You' otherStyles='border-[3px] border-primary-green' />
+          <Avatar name='você' otherStyles='border-[3px] border-primary-green' />
         )}
 
         {others.slice(0, 2).map(({ connectionId }) => (

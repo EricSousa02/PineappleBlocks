@@ -13,7 +13,7 @@ const PinnedComposer = ({ onComposerSubmit, ...props }: Props) => {
       <div className="select-none relative w-9 h-9 shadow rounded-tl-md rounded-tr-full rounded-br-full rounded-bl-full bg-white flex justify-center items-center">
         <Image
           src={`https://liveblocks.io/avatars/avatar-${Math.floor(Math.random() * 30)}.png`}
-          alt="someone"
+          alt="alguém"
           width={28}
           height={28}
           className="rounded-full"
