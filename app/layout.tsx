@@ -6,9 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Room from "./Room";
 
 export const metadata = {
-  title: "Figma Clone",
+  title: "PineappleBlocks",
   description:
-    "A minimalist Figma clone using fabric.js and Liveblocks for realtime collaboration",
+    "Um clone minimalista do Figma usando fabric.js e Liveblocks para colaboração em tempo real",
 };
 
 const workSans = Work_Sans({
@@ -18,7 +18,7 @@ const workSans = Work_Sans({
 });
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
-  <html lang='en'>
+  <html lang='pt-BR'>
     <body className={`${workSans.className} bg-primary-grey-200`}>
       <Room>
         <TooltipProvider>{children}</TooltipProvider>
