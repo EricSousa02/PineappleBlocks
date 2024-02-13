@@ -97,9 +97,11 @@ export type RightSidebarProps = {
   activeObjectRef: React.RefObject<fabric.Object | null>;
   isEditingRef: React.MutableRefObject<boolean>;
   syncShapeInStorage: (obj: any) => void;
+  isMobileButtonOpen: boolean;
 };
 
 export type NavbarProps = {
+  setIsMobileButtonOpen: React.Dispatch<React.SetStateAction<boolean>>;
   activeElement: ActiveElement;
   imageInputRef: React.MutableRefObject<HTMLInputElement | null>;
   handleImageUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;

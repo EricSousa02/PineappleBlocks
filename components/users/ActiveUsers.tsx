@@ -27,7 +27,7 @@ const ActiveUsers = () => {
     const hasMoreUsers = others.length > 2;
 
     return (
-      <div className='flex items-center justify-center gap-1'>
+      <div className='items-center justify-center gap-1 flex '>
         {currentUser && (
           <Avatar name='você' otherStyles='border-[3px] border-primary-green' />
         )}

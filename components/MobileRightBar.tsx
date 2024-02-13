@@ -7,16 +7,14 @@ import Text from "./settings/Text";
 import Color from "./settings/Color";
 import Export from "./settings/Export";
 import Dimensions from "./settings/Dimensions";
-import ActiveUsers from "./users/ActiveUsers";
 
-const RightSidebar = ({
+const MobileRightBar = ({
   elementAttributes,
   setElementAttributes,
   fabricRef,
   activeObjectRef,
   isEditingRef,
   syncShapeInStorage,
-  isMobileButtonOpen,
 }: RightSidebarProps) => {
   const colorInputRef = useRef(null);
   const strokeInputRef = useRef(null);
@@ -35,27 +33,10 @@ const RightSidebar = ({
     });
   };
 
-  const classeAnimacao = isMobileButtonOpen
-    ? "max-lg:translate-x-0 transition-transform"
-    : "max-lg:translate-x-full transition-transform";
-
-  
+  // memoize the content of the right sidebar to avoid re-rendering on every mouse actions
   const memoizedContent = useMemo(
     () => (
-      <section
-        className={`custom-scrollbar sticky right-0 flex h-full min-w-[227px] select-none flex-col overflow-y-auto border-t border-primary-grey-200 bg-primary-black pb-20 text-primary-grey-300 max-lg:absolute ${classeAnimacao}`}
-      >
-        <div className='right-0 flex w-full flex-col justify-between border-b border-primary-grey-200 px-5 py-3 align-middle lg:hidden'>
-          <div className='flex w-full justify-between align-middle'>
-            <h3 className=' pt-4 text-xs uppercase'>Usuários</h3>
-            <ActiveUsers />
-          </div>
-
-          <span className='mt-3  text-xs text-primary-grey-300'>
-            você e os outros que estão online
-          </span>
-        </div>
-
+      <section className='overflow-y-auto pb-20 custom-scrollbar sticky right-0 flex h-full min-w-[227px] select-none flex-col border-t border-primary-grey-200 bg-primary-black text-primary-grey-300 max-sm:hidden'>
         <h3 className=' px-5 pt-4 text-xs uppercase'>Design</h3>
         <span className='mt-3 border-b border-primary-grey-200 px-5 pb-4 text-xs text-primary-grey-300'>
           Faça as alterações que desejar na tela
@@ -94,10 +75,10 @@ const RightSidebar = ({
         <Export />
       </section>
     ),
-    [elementAttributes, isMobileButtonOpen]
+    [elementAttributes]
   ); // only re-render when elementAttributes changes
 
   return memoizedContent;
 };
 
-export default RightSidebar;
+export default MobileRightBar;

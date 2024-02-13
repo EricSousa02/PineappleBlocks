@@ -488,9 +488,12 @@ const Home = () => {
     });
   }, [canvasObjects]);
 
+  const [isMobileButtonOpen, setIsMobileButtonOpen] = useState(false);
+
   return (
     <main className='h-screen overflow-hidden'>
       <Navbar
+        setIsMobileButtonOpen={setIsMobileButtonOpen}
         imageInputRef={imageInputRef}
         activeElement={activeElement}
         handleImageUpload={(e: any) => {
@@ -507,7 +510,7 @@ const Home = () => {
         handleActiveElement={handleActiveElement}
       />
 
-      <section className='flex h-full flex-row'>
+      <section className='flex h-full flex-row overflow-hidden'>
         <LeftSidebar allShapes={Array.from(canvasObjects)} />
 
         <Live canvasRef={canvasRef} undo={undo} redo={redo} />
@@ -519,6 +522,7 @@ const Home = () => {
           isEditingRef={isEditingRef}
           activeObjectRef={activeObjectRef}
           syncShapeInStorage={syncShapeInStorage}
+          isMobileButtonOpen={isMobileButtonOpen}
         />
       </section>
     </main>

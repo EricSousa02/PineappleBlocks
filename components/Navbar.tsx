@@ -10,8 +10,9 @@ import { Button } from "./ui/button";
 import ShapesMenu from "./ShapesMenu";
 import ActiveUsers from "./users/ActiveUsers";
 import { NewThread } from "./comments/NewThread";
+import MobileRightBarButton from "./MobileRightBarButton";
 
-const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveElement }: NavbarProps) => {
+const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleImageUpload, handleActiveElement }: NavbarProps) => {
   const isActive = (value: string | Array<ActiveElement>) =>
     (activeElement && activeElement.value === value) ||
     (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
@@ -28,7 +29,7 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
               if (Array.isArray(item.value)) return;
               handleActiveElement(item);
             }}
-            className={`group px-2.5 py-5 flex justify-center items-center
+            className={`group px-1.5 py-3 lg:px-2.5 lg:py-5 flex justify-center items-center
             ${isActive(item.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}
             ${item.name === "Texto" ? "lg:flex hidden" : ""}
             `}
@@ -68,7 +69,12 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
         ))}
       </ul>
 
-      <ActiveUsers />
+      <MobileRightBarButton setIsMobileButtonOpen={setIsMobileButtonOpen}/>
+
+      <div className="max-lg:hidden">
+        <ActiveUsers />
+      </div>
+      
     </nav>
   );
 };
