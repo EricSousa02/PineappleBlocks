@@ -30,6 +30,7 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
             }}
             className={`group px-2.5 py-5 flex justify-center items-center
             ${isActive(item.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}
+            ${item.name === "Texto" ? "lg:flex hidden" : ""}
             `}
           >
             {/* If value is an array means it's a nav element with sub options i.e., dropdown */}
