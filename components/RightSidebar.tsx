@@ -37,7 +37,7 @@ const RightSidebar = ({
 
   const classeAnimacao = isMobileButtonOpen
     ? "max-lg:translate-x-0 transition-transform"
-    : "max-lg:translate-x-full transition-transform";
+    : "max-lg:translate-x-full transition-transform hidden";
 
   
   const memoizedContent = useMemo(
