@@ -222,7 +222,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger
+      <div
         className="relative flex h-full w-full flex-1 items-center justify-center"
         id="canvas"
         style={{
@@ -270,7 +270,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
 
         {/* Show the comments */}
         <Comments />
-      </ContextMenuTrigger>
+      </div>
 
       <ContextMenuContent className="right-menu-content">
         {shortcuts.map((item) => (
