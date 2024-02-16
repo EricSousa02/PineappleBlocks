@@ -43,7 +43,7 @@ const RightSidebar = ({
   const memoizedContent = useMemo(
     () => (
       <section
-        className={`custom-scrollbar sticky right-0 flex h-full min-w-[227px] select-none flex-col overflow-y-auto border-t border-primary-grey-200 bg-primary-black pb-20 text-primary-grey-300 max-lg:absolute ${classeAnimacao}`}
+        className={`z-indexBar custom-scrollbar sticky right-0 flex h-full min-w-[227px] select-none flex-col overflow-y-auto border-t border-primary-grey-200 bg-primary-black pb-20 text-primary-grey-300 max-lg:absolute ${classeAnimacao}`}
       >
         <div className='right-0 flex w-full flex-col justify-between border-b border-primary-grey-200 px-5 py-3 align-middle lg:hidden'>
           <div className='flex w-full justify-between align-middle'>

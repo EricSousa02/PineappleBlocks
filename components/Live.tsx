@@ -10,6 +10,7 @@ import { shortcuts } from "@/constants";
 import { Comments } from "./comments/Comments";
 import { CursorChat, FlyingReaction, LiveCursors, ReactionSelector } from "./index";
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "./ui/context-menu";
+import CircularButton from "./CircularButton";
 
 type Props = {
   canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
@@ -233,6 +234,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
       >
+        <CircularButton/>
         <canvas ref={canvasRef} />
 
         {/* Render the reactions */}
