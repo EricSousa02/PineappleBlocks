@@ -221,8 +221,13 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
     }
   }, []);
 
+  const handleCircularButtonClick = (buttonKey: any) => {
+    // Chame a função handleContextMenuClick com a chave específica do botão
+    handleContextMenuClick(buttonKey);
+  };
+
   return (
-    <ContextMenu>
+    <>
       <div
         className="relative flex h-full w-full flex-1 items-center justify-center"
         id="canvas"
@@ -234,7 +239,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
       >
-        <CircularButton/>
+        <CircularButton onButtonClick={handleCircularButtonClick}/>
         <canvas ref={canvasRef} />
 
         {/* Render the reactions */}
@@ -274,7 +279,7 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
         <Comments />
       </div>
 
-      <ContextMenuContent className="right-menu-content">
+      {/* <ContextMenuContent className="right-menu-content">
         {shortcuts.map((item) => (
           <ContextMenuItem
             key={item.key}
@@ -285,8 +290,10 @@ const Live = ({ canvasRef, undo, redo }: Props) => {
             <p className="text-xs text-primary-grey-300">{item.shortcut}</p>
           </ContextMenuItem>
         ))}
-      </ContextMenuContent>
-    </ContextMenu>
+      </ContextMenuContent> */}
+
+
+    </>
   );
 };
 

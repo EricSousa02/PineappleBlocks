@@ -53,18 +53,6 @@
   z-index: 5;
 }
 
-.reddit-button:hover {
-  background: #ff4500;
-}
-
-
-.messenger-button:hover {
-  background: #0093ff;
-}
-
-.pinterest-button:hover {
-  background: #f0002a;
-}
 
 
 @keyframes square-animation {

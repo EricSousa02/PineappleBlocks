@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 
-const CircularButton = () => {
+interface CircularButtonProps {
+  onButtonClick: (buttonKey: string) => void;
+}
+
+const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
+
   const [active, setActive] = useState(false);
 
   const handleClick = () => {
@@ -10,31 +15,32 @@ const CircularButton = () => {
   };
 
   return (
-    <div className='absolute bottom-20 right-3 max-lg:bottom-16'>
+    <div className='absolute lg:bottom-20 lg:right-3 max-lg:top-2 max-lg:left-2'>
       <div className='buttons'>
         <Button
-          className={`main-button active:scale-90`}
+          className={`main-button active:scale-90 ${active ? "rotate-45" : ""}`}
+          onClick={handleClick}
         >
           <Image
             src='/assets/plus.svg'
             width='30'
             height='30'
             alt='chat'
-            onClick={handleClick}
           />
         </Button>
 
         <Button
-          className={`${active ? "-translate-y-[70px] translate-x-0" : ""} reddit-button button hover:bg-[#ff4500]`}
+          className={`${active ? "lg:-translate-y-[70px] max-lg:translate-y-[70px] translate-x-0" : ""} reddit-button button hover:bg-[#ff4500]`}
+          onClick={() => onButtonClick('Reactions')}
           style={{
-            transitionDelay: "0.2s, 0s, 0.2s",
-
+            transitionDelay: "0.2s, 0s, 0.2s"
           }}
         >
           <Image src='/assets/emoji.svg' width='30' height='30' alt='chat' />
         </Button>
         <Button
-          className={`${active ? "-translate-x-[47px] -translate-y-[47px]" : ""} messenger-button button hover:bg-[#0093ff]`}
+          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[47px] max-lg:translate-y-[47px]" : ""} max-lg:hidden messenger-button button hover:bg-[#0093ff]`}
+          onClick={() => onButtonClick('Chat')}
           style={{
             transitionDelay: "0.3s, 0s, 0.3s",
           }}
@@ -46,14 +52,31 @@ const CircularButton = () => {
             alt='mensagem'
           />
         </Button>
+
         <Button
-          className={`${active ? "-translate-x-[70px] translate-y-0" : ""} pinterest-button button hover:bg-[#4CAF50]`}
+          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[47px] max-lg:translate-y-[47px]" : ""} lg:hidden messenger-button button hover:bg-[#0093ff]`}
+          onClick={() => onButtonClick('Redo')}
+          style={{
+            transitionDelay: "0.3s, 0s, 0.3s",
+          }}
+        >
+          <Image
+            src='/assets/redo.svg'
+            width='30'
+            height='30'
+            alt='refazer'
+          />
+        </Button>
+
+        <Button
+          className={`${active ? "lg:-translate-x-[70px] max-lg:translate-x-[70px] translate-y-0" : ""} pinterest-button button hover:bg-[#4CAF50]`}
+          onClick={() => onButtonClick('Undo')}
           style={{
             transitionDelay: "0.4s, 0s, 0.4s",
            
           }}
         >
-          <Image src='/assets/back-2.svg' width='30' height='30' alt='voltar' />
+          <Image src='/assets/undo.svg' width='30' height='30' alt='desfazer' />
         </Button>
       </div>
     </div>
