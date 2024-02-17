@@ -12,16 +12,23 @@ import ActiveUsers from "./users/ActiveUsers";
 import { NewThread } from "./comments/NewThread";
 import MobileRightBarButton from "./MobileRightBarButton";
 
-const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleImageUpload, handleActiveElement }: NavbarProps) => {
+const Navbar = ({
+  setIsMobileButtonOpen,
+  activeElement,
+  imageInputRef,
+  handleImageUpload,
+  handleActiveElement,
+}: NavbarProps) => {
   const isActive = (value: string | Array<ActiveElement>) =>
     (activeElement && activeElement.value === value) ||
-    (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
+    (Array.isArray(value) &&
+      value.some((val) => val?.value === activeElement?.value));
 
   return (
-    <nav className="flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white">
-      <Image src="/assets/logo.png" alt="Logo" width={40} height={25} />
+    <nav className='flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white'>
+      <Image src='/assets/logo.png' alt='Logo' width={40} height={25} />
 
-      <ul className="flex flex-row">
+      <ul className='flex flex-row'>
         {navElements.map((item: ActiveElement | any) => (
           <li
             key={item.name}
@@ -29,12 +36,12 @@ const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleIma
               if (Array.isArray(item.value)) return;
               handleActiveElement(item);
             }}
-            className={`group px-1.5 py-3 lg:px-2.5 lg:py-5 flex justify-center items-center
-            ${isActive(item.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}
-            ${item.name === "Texto" ? "lg:flex hidden" : ""}
+            className={`group flex items-center justify-center px-1.5 py-3 lg:px-2.5 lg:py-5
+            ${isActive(item.value) ? "bg-primary-yellow" : "hover:bg-primary-grey-200"}
+            ${item.name === "Commentarios" ? "hidden lg:flex" : ""}
             `}
           >
-            {/* If value is an array means it's a nav element with sub options i.e., dropdown */}
+            {/* Se o valor for uma matriz, significa que se trata de um elemento de navegação com subopções, ou seja, dropdown */}
             {Array.isArray(item.value) ? (
               <ShapesMenu
                 item={item}
@@ -44,9 +51,9 @@ const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleIma
                 handleImageUpload={handleImageUpload}
               />
             ) : item?.value === "comments" ? (
-              // If value is comments, trigger the NewThread component
+              // Se o valor for comentários, acione o componente NewThread
               <NewThread>
-                <Button className="relative w-5 h-5 object-contain">
+                <Button className='relative h-5 w-5 object-contain'>
                   <Image
                     src={item.icon}
                     alt={item.name}
@@ -56,7 +63,7 @@ const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleIma
                 </Button>
               </NewThread>
             ) : (
-              <Button className="relative w-5 h-5 object-contain">
+              <Button className='relative h-5 w-5 object-contain'>
                 <Image
                   src={item.icon}
                   alt={item.name}
@@ -69,14 +76,16 @@ const Navbar = ({ setIsMobileButtonOpen, activeElement, imageInputRef, handleIma
         ))}
       </ul>
 
-      <MobileRightBarButton setIsMobileButtonOpen={setIsMobileButtonOpen}/>
+      <MobileRightBarButton setIsMobileButtonOpen={setIsMobileButtonOpen} />
 
-      <div className="max-lg:hidden">
+      <div className='max-lg:hidden'>
         <ActiveUsers />
       </div>
-      
     </nav>
   );
 };
 
-export default memo(Navbar, (prevProps, nextProps) => prevProps.activeElement === nextProps.activeElement);
+export default memo(
+  Navbar,
+  (prevProps, nextProps) => prevProps.activeElement === nextProps.activeElement
+);

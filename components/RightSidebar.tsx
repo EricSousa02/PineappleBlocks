@@ -95,7 +95,7 @@ const RightSidebar = ({
       </section>
     ),
     [elementAttributes, isMobileButtonOpen]
-  ); // only re-render when elementAttributes changes
+  ); // só será renderizado novamente quando elementAttributes for alterado
 
   return memoizedContent;
 };

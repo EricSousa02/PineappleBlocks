@@ -30,7 +30,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
         </Button>
 
         <Button
-          className={`${active ? "lg:-translate-y-[70px] max-lg:translate-y-[70px] translate-x-0" : ""} reddit-button button hover:bg-[#ff4500]`}
+          className={`${active ? "lg:-translate-y-[70px] max-lg:translate-y-[70px] translate-x-0" : ""} max-lg:hidden button hover:bg-[#ff4500]`}
           onClick={() => onButtonClick('Reactions')}
           style={{
             transitionDelay: "0.2s, 0s, 0.2s"
@@ -39,7 +39,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
           <Image src='/assets/emoji.svg' width='30' height='30' alt='chat' />
         </Button>
         <Button
-          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[47px] max-lg:translate-y-[47px]" : ""} max-lg:hidden messenger-button button hover:bg-[#0093ff]`}
+          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[47px] max-lg:translate-y-[47px]" : ""} max-lg:hidden button hover:bg-[#0093ff]`}
           onClick={() => onButtonClick('Chat')}
           style={{
             transitionDelay: "0.3s, 0s, 0.3s",
@@ -54,7 +54,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
         </Button>
 
         <Button
-          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[47px] max-lg:translate-y-[47px]" : ""} lg:hidden messenger-button button hover:bg-[#0093ff]`}
+          className={`${active ? "lg:-translate-x-[47px] lg:-translate-y-[47px] max-lg:translate-x-[0px] max-lg:translate-y-[100px] " : ""} lg:hidden button hover:bg-[#0093ff]`}
           onClick={() => onButtonClick('Redo')}
           style={{
             transitionDelay: "0.3s, 0s, 0.3s",
@@ -69,7 +69,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
         </Button>
 
         <Button
-          className={`${active ? "lg:-translate-x-[70px] max-lg:translate-x-[70px] translate-y-0" : ""} pinterest-button button hover:bg-[#4CAF50]`}
+          className={`${active ? "lg:-translate-x-[70px] max-lg:translate-x-[0px] max-lg:translate-y-[50px]" : ""} button hover:bg-[#4CAF50]`}
           onClick={() => onButtonClick('Undo')}
           style={{
             transitionDelay: "0.4s, 0s, 0.4s",

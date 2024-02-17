@@ -33,7 +33,7 @@ const CursorChat = ({ cursor, cursorState, setCursorState, updateMyPresence }: C
         transform: `translateX(${cursor.x}px) translateY(${cursor.y}px)`,
       }}
     >
-      {/* Show message input when cursor is in chat mode */}
+      {/* Mostrar entrada de mensagem quando o cursor estiver no modo de bate-papo */}
       {cursorState.mode === CursorMode.Chat && (
         <>
           {/* Custom Cursor shape */}
@@ -47,10 +47,10 @@ const CursorChat = ({ cursor, cursorState, setCursorState, updateMyPresence }: C
             }}
           >
             {/**
-             * if there is a previous message, show it above the input
+             * Se houver uma mensagem anterior, mostre-a acima da entrada
              *
-             * We're doing this because when user press enter, we want to
-             * show the previous message at top and the input at bottom
+             * Estamos fazendo isso porque, quando o usuário pressiona enter, queremos
+             * mostrar a mensagem anterior na parte superior e a entrada na parte inferior
              */}
             {cursorState.previousMessage && <div>{cursorState.previousMessage}</div>}
             <input

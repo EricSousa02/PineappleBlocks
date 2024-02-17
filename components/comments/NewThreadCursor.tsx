@@ -5,7 +5,7 @@ import * as Portal from "@radix-ui/react-portal";
 
 const DEFAULT_CURSOR_POSITION = -10000;
 
-// display a custom cursor when placing a new thread
+// exibir um cursor personalizado ao colocar um novo thread
 const NewThreadCursor = ({ display }: { display: boolean }) => {
   const [coords, setCoords] = useState({
     x: DEFAULT_CURSOR_POSITION,
@@ -19,14 +19,14 @@ const NewThreadCursor = ({ display }: { display: boolean }) => {
 
       if (canvas) {
         /**
-         * getBoundingClientRect returns the size of an element and its position relative to the viewport
+         * getBoundingClientRect retorna o tamanho de um elemento e sua posição em relação à janela de visualização
          *
          * getBoundingClientRect: https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
          */
         const canvasRect = canvas.getBoundingClientRect();
 
-        // check if the mouse is outside the canvas
-        // if so, hide the custom comment cursor
+        // verificar se o mouse está fora da tela
+        // Se for o caso, oculte o cursor de comentário personalizado
         if (
           e.clientX < canvasRect.left ||
           e.clientX > canvasRect.right ||
@@ -41,7 +41,7 @@ const NewThreadCursor = ({ display }: { display: boolean }) => {
         }
       }
 
-      // set the coordinates of the cursor
+      // e as coordenadas do cursor
       setCoords({
         x: e.clientX,
         y: e.clientY,
@@ -70,7 +70,7 @@ const NewThreadCursor = ({ display }: { display: boolean }) => {
   }
 
   return (
-    // Portal.Root is used to render a component outside of its parent component
+    // O Portal.Root é usado para renderizar um componente fora de seu componente pai
     <Portal.Root>
       <div
         className="pointer-events-none fixed left-0 top-0 h-9 w-9 cursor-grab select-none rounded-bl-full rounded-br-full rounded-tl-md rounded-tr-full bg-white shadow-2xl"

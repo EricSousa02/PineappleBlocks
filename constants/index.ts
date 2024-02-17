@@ -31,11 +31,6 @@ export const shapeElements = [
     name: "Desenho",
     value: "freeform",
   },
-  {
-    icon: "/assets/text.svg",
-    value: "text",
-    name: "Texto",
-  },
 ];
 
 export const navElements = [

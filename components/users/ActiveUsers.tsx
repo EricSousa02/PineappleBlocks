@@ -9,27 +9,30 @@ import Avatar from "./Avatar";
 
 const ActiveUsers = () => {
   /**
-   * useOthers returns the list of other users in the room.
+   * useOthers retorna a lista de outros usuários na sala.
    *
    * useOthers: https://liveblocks.io/docs/api-reference/liveblocks-react#useOthers
    */
   const others = useOthers();
 
   /**
-   * useSelf returns the current user details in the room
+   * useSelf retorna os detalhes do usuário atual na sala
    *
    * useSelf: https://liveblocks.io/docs/api-reference/liveblocks-react#useSelf
    */
   const currentUser = useSelf();
 
-  // memoize the result of this function so that it doesn't change on every render but only when there are new users joining the room
+  // memorizamos o resultado dessa função para que ele não seja alterado a cada renderização, mas apenas quando houver novos usuários entrando na sala
   const memoizedUsers = useMemo(() => {
     const hasMoreUsers = others.length > 2;
 
     return (
-      <div className='items-center justify-center gap-1 flex '>
+      <div className='flex items-center justify-center gap-1 '>
         {currentUser && (
-          <Avatar name='você' otherStyles='border-[3px] border-primary-green' />
+          <Avatar
+            name='você'
+            otherStyles='border-[3px] border-primary-yellow'
+          />
         )}
 
         {others.slice(0, 2).map(({ connectionId }) => (

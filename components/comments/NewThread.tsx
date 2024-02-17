@@ -25,64 +25,64 @@ type Props = {
 };
 
 export const NewThread = ({ children }: Props) => {
-  // set state to track if we're placing a new comment or not
+  // define o estado para rastrear se estamos colocando um novo comentário ou não
   const [creatingCommentState, setCreatingCommentState] = useState<
     "placing" | "placed" | "complete"
   >("complete");
 
   /**
-   * We're using the useCreateThread hook to create a new thread.
+   * Estamos usando o hook useCreateThread para criar um novo tópico.
    *
    * useCreateThread: https://liveblocks.io/docs/api-reference/liveblocks-react#useCreateThread
    */
   const createThread = useCreateThread();
 
-  // get the max z-index of a thread
+  // obtenha o z-index máximo de um tópico
   const maxZIndex = useMaxZIndex();
 
-  // set state to track the coordinates of the composer (liveblocks comment editor)
+  // define o estado para rastrear as coordenadas do compositor (editor de comentários do liveblocks)
   const [composerCoords, setComposerCoords] = useState<ComposerCoords>(null);
 
-  // set state to track the last pointer event
+  // define o estado para rastrear o último evento de ponteiro
   const lastPointerEvent = useRef<PointerEvent>();
 
-  // set state to track if user is allowed to use the composer
+  // define o estado para rastrear se o usuário pode usar o compositor
   const [allowUseComposer, setAllowUseComposer] = useState(false);
   const allowComposerRef = useRef(allowUseComposer);
   allowComposerRef.current = allowUseComposer;
 
   useEffect(() => {
-    // If composer is already placed, don't do anything
+    // Se o compositor já estiver colocado, não faça nada
     if (creatingCommentState === "complete") {
       return;
     }
 
-    // Place a composer on the screen
+    // Coloque um compositor na tela
     const newComment = (e: MouseEvent) => {
       e.preventDefault();
 
-      // If already placed, click outside to close composer
+      // Se já estiver colocado, clique fora para fechar o compositor
       if (creatingCommentState === "placed") {
-        // check if the click event is on/inside the composer
+        // verifique se o evento de clique está no/dentro do compositor
         const isClickOnComposer = ((e as any)._savedComposedPath = e
           .composedPath()
           .some((el: any) => {
             return el.classList?.contains("lb-composer-editor-actions");
           }));
 
-        // if click is inisde/on composer, don't do anything
+        // se o clique estiver dentro/no compositor, não faça nada
         if (isClickOnComposer) {
           return;
         }
 
-        // if click is outside composer, close composer
+        // se o clique estiver fora do compositor, feche o compositor
         if (!isClickOnComposer) {
           setCreatingCommentState("complete");
           return;
         }
       }
 
-      // First click sets composer down
+      // O primeiro clique define o compositor
       setCreatingCommentState("placed");
       setComposerCoords({
         x: e.clientX,
@@ -98,9 +98,9 @@ export const NewThread = ({ children }: Props) => {
   }, [creatingCommentState]);
 
   useEffect(() => {
-    // If dragging composer, update position
+    // Se estiver arrastando o compositor, atualize a posição
     const handlePointerMove = (e: PointerEvent) => {
-      // Prevents issue with composedPath getting removed
+      // Evita problema com composedPath sendo removido
       (e as any)._savedComposedPath = e.composedPath();
       lastPointerEvent.current = e;
     };
@@ -115,25 +115,25 @@ export const NewThread = ({ children }: Props) => {
     };
   }, []);
 
-  // Set pointer event from last click on body for use later
+  // Define o evento de ponteiro do último clique no corpo para uso posterior
   useEffect(() => {
     if (creatingCommentState !== "placing") {
       return;
     }
 
     const handlePointerDown = (e: PointerEvent) => {
-      // if composer is already placed, don't do anything
+      // se o compositor já estiver colocado, não faça nada
       if (allowComposerRef.current) {
         return;
       }
 
-      // Prevents issue with composedPath getting removed
+      // Evita problema com composedPath sendo removido
       (e as any)._savedComposedPath = e.composedPath();
       lastPointerEvent.current = e;
       setAllowUseComposer(true);
     };
 
-    // Right click to cancel placing
+    // Clique direito para cancelar a colocação
     const handleContextMenu = (e: Event) => {
       if (creatingCommentState === "placing") {
         e.preventDefault();
@@ -156,26 +156,26 @@ export const NewThread = ({ children }: Props) => {
     };
   }, [creatingCommentState]);
 
-  // On composer submit, create thread and reset state
+  // Ao enviar o compositor, crie um tópico e redefina o estado
   const handleComposerSubmit = useCallback(
     ({ body }: ComposerSubmitComment, event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       event.stopPropagation();
 
-      // Get your canvas element
+      // Obtenha seu elemento de canvas
       const overlayPanel = document.querySelector("#canvas");
 
-      // if there's no composer coords or last pointer event, meaning the user hasn't clicked yet, don't do anything
+      // se não houver coordenadas do compositor ou último evento de ponteiro, significando que o usuário ainda não clicou, não faça nada
       if (!composerCoords || !lastPointerEvent.current || !overlayPanel) {
         return;
       }
 
-      // Set coords relative to the top left of your canvas
+      // Defina as coordenadas relativas ao canto superior esquerdo do seu canvas
       const { top, left } = overlayPanel.getBoundingClientRect();
       const x = composerCoords.x - left;
       const y = composerCoords.y - top;
 
-      // create a new thread with the composer coords and cursor selectors
+      // crie um novo tópico com as coordenadas do compositor e os seletores do cursor
       createThread({
         body,
         metadata: {
@@ -196,13 +196,13 @@ export const NewThread = ({ children }: Props) => {
   return (
     <>
       {/**
-       * Slot is used to wrap the children of the NewThread component
-       * to allow us to add a click event listener to the children
+       * Slot é usado para envolver os filhos do componente NewThread
+       * para nos permitir adicionar um ouvinte de eventos de clique aos filhos
        *
        * Slot: https://www.radix-ui.com/primitives/docs/utilities/slot
        *
-       * Disclaimer: We don't have to download this package specifically,
-       * it's already included when we install Shadcn
+       * Aviso: Não precisamos baixar este pacote especificamente,
+       * já está incluído quando instalamos o Shadcn
        */}
       <Slot
         onClick={() =>
@@ -215,10 +215,10 @@ export const NewThread = ({ children }: Props) => {
         {children}
       </Slot>
 
-      {/* if composer coords exist and we're placing a comment, render the composer */}
+      {/* se as coordenadas do compositor existirem e estivermos colocando um comentário, renderize o compositor */}
       {composerCoords && creatingCommentState === "placed" ? (
         /**
-         * Portal.Root is used to render the composer outside of the NewThread component to avoid z-index issuess
+         * Portal.Root é usado para renderizar o compositor fora do componente NewThread para evitar problemas de z-index
          *
          * Portal.Root: https://www.radix-ui.com/primitives/docs/utilities/portal
          */
@@ -234,7 +234,7 @@ export const NewThread = ({ children }: Props) => {
         </Portal.Root>
       ) : null}
 
-      {/* Show the customizing cursor when placing a comment. The one with comment shape */}
+      {/* Mostrar o cursor personalizado ao colocar um comentário. Aquele com a forma de comentário */}
       <NewThreadCursor display={creatingCommentState === "placing"} />
     </>
   );

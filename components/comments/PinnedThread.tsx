@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const PinnedThread = ({ thread, onFocus, ...props }: Props) => {
-  // Open pinned threads that have just been created
+  // Abrir tópicos fixados que acabaram de ser criados
   const startMinimized = useMemo(
     () => Number(new Date()) - Number(new Date(thread.createdAt)) > 100,
     [thread]
@@ -22,8 +22,8 @@ export const PinnedThread = ({ thread, onFocus, ...props }: Props) => {
   const [minimized, setMinimized] = useState(startMinimized);
 
   /**
-   * memoize the result of this function so that it doesn't change on every render but only when the thread changes
-   * Memo is used to optimize performance and avoid unnecessary re-renders.
+   * memorizam o resultado dessa função para que ele não seja alterado a cada renderização, mas somente quando o thread for alterado
+   * O Memo é usado para otimizar o desempenho e evitar novas renderizações desnecessárias.
    *
    * useMemo: https://react.dev/reference/react/useMemo
    */

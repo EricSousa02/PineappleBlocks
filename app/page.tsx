@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 
 /**
- * disable ssr to avoid pre-rendering issues of Next.js
+ * desabilita o ssr para evitar problemas de pré-renderização do Next.js
  *
- * we're doing this because we're using a canvas element that can't be pre-rendered by Next.js on the server
+ * estamos fazendo isso porque estamos usando um elemento de canvas que não pode ser pré-renderizado pelo Next.js no servidor
  */
 const App = dynamic(() => import("./App"), { ssr: false });
 

@@ -11,20 +11,20 @@ const Room = ({ children }: { children: React.ReactNode }) => {
     <RoomProvider
       id="fig-room"
       /**
-       * initialPresence is used to initialize the presence of the current
-       * user in the room.
+       * initialPresence é usado para inicializar a presença do usuário atual
+       * na sala.
        *
        * initialPresence: https://liveblocks.io/docs/api-reference/liveblocks-react#RoomProvider
        */
       initialPresence={{ cursor: null, cursorColor: null, editingText: null }}
       /**
-       * initialStorage is used to initialize the storage of the room.
+       * initialStorage é usado para inicializar o armazenamento da sala.
        *
        * initialStorage: https://liveblocks.io/docs/api-reference/liveblocks-react#RoomProvider
        */
       initialStorage={{
         /**
-         * We're using a LiveMap to store the canvas objects
+         * Estamos usando um LiveMap para armazenar os objetos do canvas
          *
          * LiveMap: https://liveblocks.io/docs/api-reference/liveblocks-client#LiveMap
          */
