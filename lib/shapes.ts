@@ -53,21 +53,25 @@ export const createLine = (pointer: PointerEvent) => {
   );
 };
 
-export const createText = (pointer: PointerEvent, text: string) => {
-  return new fabric.IText(text, {
+export const createText = (pointer: PointerEvent, text: string, autoFocus: boolean = false) => {
+  const textObj = new fabric.IText(text, {
     left: pointer.x,
     top: pointer.y,
     fill: "#aabbcc",
     fontFamily: "Helvetica",
     fontSize: 36,
     fontWeight: "400",
-    objectId: uuidv4()
+    objectId: uuidv4(),
+    autoFocus: autoFocus, 
   } as fabric.ITextOptions);
+
+  return textObj;
 };
 
 export const createSpecificShape = (
   shapeType: string,
-  pointer: PointerEvent
+  pointer: PointerEvent,
+  autoFocus: boolean = true
 ) => {
   switch (shapeType) {
     case "rectangle":
@@ -83,7 +87,7 @@ export const createSpecificShape = (
       return createLine(pointer);
 
     case "text":
-      return createText(pointer, "Toque para escrever");
+      return createText(pointer, "Toque para escrever", autoFocus);
 
     default:
       return null;
