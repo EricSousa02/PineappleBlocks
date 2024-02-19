@@ -6,9 +6,6 @@
 2. ⚙️ [Tecnologias Utilizadas](#tech-stack)
 3. 🔋 [Recursos](#features)
 4. 🤸 [Início Rápido](#quick-start)
-5. 🕸️ [Trechos de Código](#snippets)
-6. 🔗 [Links](#links)
-7. 🚀 [Mais](#more)
 
 ## <a name="introduction">🤖 Introdução</a>
 
