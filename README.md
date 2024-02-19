@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="public/assets/favicon.ico" width="100" alt="PineappleBlocks Logo">
+</div>
 
 
 ## 📋 <a name="table">Tabela de Conteúdos</a>
@@ -13,12 +16,12 @@ Um clone minimalista do Figma para mostrar como adicionar recursos do mundo real
 
 ## <a name="tech-stack">⚙️ Tecnologias Utilizadas</a>
 
-- Next.js
-- TypeScript
-- Liveblocks
-- Fabric.js
-- Shadcn
-- Tailwind CSS
+- ![Next](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)&nbsp;
+- ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)&nbsp;
+- ![Liveblocks](https://img.shields.io/badge/Liveblocks-792DE4?style=for-the-badge&logo=pytorch-lightning&logoColor=white)&nbsp;
+- ![FabricJS](https://img.shields.io/badge/Fabric%20JS-9696F5?style=for-the-badge&logo=pytorch-lightning&logoColor=white)&nbsp;
+- ![Shadcn](https://img.shields.io/badge/Shadcn-09090B?style=for-the-badge&logo=pytorch-lightning&logoColor=white)&nbsp;
+- ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)&nbsp;
 
 ## <a name="features">🔋 Recursos</a>
 
