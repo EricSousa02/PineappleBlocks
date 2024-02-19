@@ -65,3 +65,25 @@ Certifique-se de ter o seguinte instalado em sua máquina:
 
 ```bash
 git clone https://github.com/EricSousa02/PineappleBlocks.git
+````
+
+**Configurando env**
+
+acesse o site https://liveblocks.io faça sua conta e crie um projeto, então acesse esse projeto e vá em "API KEYS"
+la você copia sua chave publica da api e cole em um arquivo chamado ".env.local" e faça como mostrado a seguir:
+```bash
+NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=sua_chave
+```
+
+**Iniciando a aplicação**
+
+```bash
+npm install
+
+# Para rodar em desenvolvimento:
+npm run dev
+
+# Para rodar em Produção:
+npm run build
+npm run start
+````
