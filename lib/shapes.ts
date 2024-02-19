@@ -146,7 +146,7 @@ export const modifyShape = ({
 
   if (!selectedElement || selectedElement?.type === "activeSelection") return;
 
-  // if  property is width or height, set the scale of the selected element
+  // se a propriedade for largura ou altura, definir a escala do elemento selecionado
   if (property === "width") {
     selectedElement.set("scaleX", 1);
     selectedElement.set("width", value);  
@@ -158,7 +158,7 @@ export const modifyShape = ({
     selectedElement.set(property as keyof object, value);
   }
 
-  // set selectedElement to activeObjectRef
+  // definir selectedElement para activeObjectRef
   activeObjectRef.current = selectedElement;
 
   syncShapeInStorage(selectedElement);
@@ -171,12 +171,12 @@ export const bringElement = ({
 }: ElementDirection) => {
   if (!canvas) return;
 
-  // get the selected element. If there is no selected element or there are more than one selected element, return
+  // obter o elemento selecionado. Se não houver elemento selecionado ou houver mais de um elemento selecionado, retornar
   const selectedElement = canvas.getActiveObject();
 
   if (!selectedElement || selectedElement?.type === "activeSelection") return;
 
-  // bring the selected element to the front
+  // trazer o elemento selecionado para a frente
   if (direction === "front") {
     canvas.bringToFront(selectedElement);
   } else if (direction === "back") {
@@ -186,5 +186,5 @@ export const bringElement = ({
   // canvas.renderAll();
   syncShapeInStorage(selectedElement);
 
-  // re-render all objects on the canvas
+  // renderizar novamente todos os objetos no canvas
 };

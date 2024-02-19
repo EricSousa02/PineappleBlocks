@@ -2,7 +2,6 @@ import jsPDF from "jspdf";
 import { twMerge } from "tailwind-merge";
 import { type ClassValue, clsx } from "clsx";
 
-
 const adjectives = [
   "Feliz",
   "Criativo",
@@ -52,19 +51,19 @@ export const getShapeInfo = (shapeType: string) => {
     case "rect":
       return {
         icon: "/assets/rectangle.svg",
-        name: "Retangulo",
+        name: "Retângulo",
       };
 
     case "circle":
       return {
         icon: "/assets/circle.svg",
-        name: "Circulo",
+        name: "Círculo",
       };
 
     case "triangle":
       return {
         icon: "/assets/triangle.svg",
-        name: "Triangulo",
+        name: "Triângulo",
       };
 
     case "line":
@@ -104,19 +103,19 @@ export const exportToPdf = () => {
 
   if (!canvas) return;
 
-  // use jspdf
+  // usar jspdf
   const doc = new jsPDF({
     orientation: "landscape",
     unit: "px",
     format: [canvas.width, canvas.height],
   });
 
-  // get the canvas data url
+  // obter a URL de dados do canvas
   const data = canvas.toDataURL();
 
-  // add the image to the pdf
+  // adicionar a imagem ao pdf
   doc.addImage(data, "PNG", 0, 0, canvas.width, canvas.height);
 
-  // download the pdf
+  // baixar o pdf
   doc.save("canvas.pdf");
 };
