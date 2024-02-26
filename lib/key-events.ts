@@ -136,8 +136,8 @@ export const handleKeyDown = ({
     handlePaste(canvas, syncShapeInStorage);
   }
 
-  // Verificar se a tecla pressionada é delete/backspace (excluir)
-  else if (e.keyCode === 8 || e.keyCode === 46) {
+  // Verificar se a tecla pressionada é delete (excluir)
+  else if ( e.keyCode === 46) {
     handleDelete(canvas, deleteShapeFromStorage);
   }
 

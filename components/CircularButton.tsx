@@ -130,7 +130,7 @@ const CircularButton: React.FC<CircularButtonProps> = ({ onButtonClick }) => {
                   </div>
 
                   <span className='mt-3  text-xs text-primary-grey-300 text-start'>
-                    aperte o botão BACKSPACE ou DELETE para deletar um objeto selecionado.
+                    aperte o botão DELETE para deletar um objeto selecionado.
                   </span>
                 </div>
 
