@@ -239,17 +239,21 @@ export const handleCanvasObjectMoving = ({
 }: {
   options: fabric.IEvent;
 }) => {
+  //DESCOMENTE TUDO DENTRO DE /**/ PARA ATIVAR A FUNÇÃO DE BARREIRA PARA NÃO DEIXAR OS OBJETOS PASSAREM DA AREA
+
   // obter objeto alvo que está se movendo
   const target = options.target as fabric.Object;
 
   // target.canvas é o canvas no qual o objeto está se movendo
-  const canvas = target.canvas as fabric.Canvas;
+
+  /*const canvas = target.canvas as fabric.Canvas;*/
 
   // definir coordenadas do objeto alvo
   target.setCoords();
 
   // restringir objeto aos limites horizontais do canvas
-  if (target && target.left) {
+
+  /*if (target && target.left) {
     target.left = Math.max(
       0,
       Math.min(
@@ -268,7 +272,7 @@ export const handleCanvasObjectMoving = ({
         (canvas.height || 0) - (target.getScaledHeight() || target.height || 0)
       )
     );
-  }
+  }*/
 };
 
 // definir atributos do elemento quando o elemento é selecionado

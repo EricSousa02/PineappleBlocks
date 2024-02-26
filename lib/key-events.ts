@@ -41,11 +41,12 @@ export const handlePaste = (
                 left: enlivenedObj.left || 0 + 20,
                 top: enlivenedObj.top || 0 + 20,
                 objectId: uuidv4(),
-                fill: "#aabbcc",
+                fill: enlivenedObj.fill,
               } as CustomFabricObject<any>);
 
               canvas.add(enlivenedObj);
-              syncShapeInStorage(enlivenedObj);
+
+              //syncShapeInStorage(enlivenedObj);
             });
             canvas.renderAll();
           },
@@ -77,6 +78,34 @@ export const handleDelete = (
   canvas.requestRenderAll();
 };
 
+export const handleClone = (
+  canvas: fabric.Canvas,
+  syncShapeInStorage: (shape: fabric.Object) => void
+) => {
+  const activeObjects = canvas.getActiveObjects();
+  
+  // Se houver mais de um objeto selecionado, não execute a clonagem
+  if (activeObjects.length !== 1) {
+    return;
+  }
+
+  const activeObject = activeObjects[0];
+
+  activeObject.clone(function (cloned: any) {
+    cloned.set({
+      left: cloned.left + 20,
+      top: cloned.top + 20,
+      objectId: uuidv4(),
+    } as CustomFabricObject<any>);
+
+    canvas.add(cloned);
+    syncShapeInStorage(cloned);
+  });
+
+  canvas.renderAll();
+};
+
+
 // criar uma função handleKeyDown que ouve diferentes eventos de tecla pressionada
 export const handleKeyDown = ({
   e,
@@ -93,34 +122,38 @@ export const handleKeyDown = ({
   syncShapeInStorage: (shape: fabric.Object) => void;
   deleteShapeFromStorage: (id: string) => void;
 }) => {
-  // Verificar se a tecla pressionada é ctrl/cmd + c (copiar)
-  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 67) {
+  // Verificar se a tecla pressionada é ctrl/cmd + b (copiar)
+  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 66) {
     handleCopy(canvas);
+
+  // Verificar se a tecla pressionada é ctrl/cmd + c (clonar)
+  } else if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 67) {
+    handleClone(canvas, syncShapeInStorage);
   }
 
   // Verificar se a tecla pressionada é ctrl/cmd + v (colar)
-  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 86) {
+  else if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 86) {
     handlePaste(canvas, syncShapeInStorage);
   }
 
   // Verificar se a tecla pressionada é delete/backspace (excluir)
-  // if (e.keyCode === 8 || e.keyCode === 46) {
-  //   handleDelete(canvas, deleteShapeFromStorage);
-  // }
+  else if (e.keyCode === 8 || e.keyCode === 46) {
+    handleDelete(canvas, deleteShapeFromStorage);
+  }
 
-  // verificar se a tecla pressionada é ctrl/cmd + x (cortar)
-  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 88) {
+  // Verificar se a tecla pressionada é ctrl/cmd + x (cortar)
+  else if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 88) {
     handleCopy(canvas);
     handleDelete(canvas, deleteShapeFromStorage);
   }
 
-  // verificar se a tecla pressionada é ctrl/cmd + z (desfazer)
-  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 90) {
+  // Verificar se a tecla pressionada é ctrl/cmd + z (desfazer)
+  else if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 90) {
     undo();
   }
 
-  // verificar se a tecla pressionada é ctrl/cmd + y (refazer)
-  if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 89) {
+  // Verificar se a tecla pressionada é ctrl/cmd + y (refazer)
+  else if ((e?.ctrlKey || e?.metaKey) && e.keyCode === 89) {
     redo();
   }
 
