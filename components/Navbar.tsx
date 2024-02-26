@@ -11,6 +11,7 @@ import ShapesMenu from "./ShapesMenu";
 import ActiveUsers from "./users/ActiveUsers";
 import { NewThread } from "./comments/NewThread";
 import MobileRightBarButton from "./MobileRightBarButton";
+import Link from "next/link";
 
 const Navbar = ({
   setIsMobileButtonOpen,
@@ -26,7 +27,9 @@ const Navbar = ({
 
   return (
     <nav className='flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white'>
-      <Image src='/assets/logo.png' alt='Logo' width={40} height={25} />
+      <Link href="https://github.com/EricSousa02" target="_blank" className="cursor-pointer">
+       <Image src='/assets/logo.png' alt='Logo' width={40} height={25} />
+      </Link>
 
       <ul className='flex flex-row'>
         {navElements.map((item: ActiveElement | any) => (

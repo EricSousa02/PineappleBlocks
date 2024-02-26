@@ -10,6 +10,25 @@
     sans-serif;
 }
 
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #14181F;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #C4D3ED;
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #C4D3ED;
+}
+
 .buttons {
   position: relative;
   display: grid;
